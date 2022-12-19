@@ -42,7 +42,7 @@ Mutuma Mwiti
 
 Sharon Chepkemoi
 
-Adreen Muchiri
+Andreen Muchiri
 
 Lisa Lyayuga
 
