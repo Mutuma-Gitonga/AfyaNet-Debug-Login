@@ -9,6 +9,7 @@ class CreatePatients < ActiveRecord::Migration[7.0]
       t.integer :phone
       t.string :location
 
+
       t.timestamps
     end
   end

@@ -18,7 +18,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: postgres
-  password: dev4608
+  password: Shazy254
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -84,5 +84,4 @@ test:
 production:
   <<: *default
   database: afyanet_rails_production
-  username: afyanet_rails
-  password: <%= ENV["AFYANET_RAILS_DATABASE_PASSWORD"] %>
+ 
