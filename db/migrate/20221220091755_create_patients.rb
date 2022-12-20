@@ -8,7 +8,7 @@ class CreatePatients < ActiveRecord::Migration[7.0]
       t.string :password_digest
       t.integer :phone
       t.string :location
-       
+
 
       t.timestamps
     end
