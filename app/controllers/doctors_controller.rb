@@ -14,5 +14,6 @@ class DoctorsController < ApplicationController
   def doctor_params 
     params.permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation)
   end
-  
+
+end
 
