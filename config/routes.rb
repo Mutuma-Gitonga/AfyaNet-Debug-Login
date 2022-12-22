@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   root "application#index"
 
   post "/patient_signup", to: "patients#create" 
+  post "/patient_login", to: "patients_sessions#create" 
 
 end
