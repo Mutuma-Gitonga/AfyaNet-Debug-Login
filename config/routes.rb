@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   
   post "/doctor_signup", to: "doctors#create" 
-
+  post "/doctor_login", to: "doctors_sessions#create" 
+  get "/doctor_profile", to: "doctors#show"
 
 end
