@@ -14,6 +14,18 @@ class PatientsController < ApplicationController
     render json: @current_patient, status: :ok
   end
 
+  # Update logged in/current patient's attributes
+  def update 
+    @current_patient.update!(patient_params)
+    render json: @current_patient, status: :ok
+  end
+
+  # Delete a logged in/current patient's profile altogether
+  def destory 
+    @current_patient.destroy
+    render json: { message: "User deleted" }, status: :ok
+  end
+
   private 
   
   # Strong params method to allow specific attributes to be set via mass assignment, 
