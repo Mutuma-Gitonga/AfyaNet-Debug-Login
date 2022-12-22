@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :doctors
   resources :messages
   resources :appointments
-  resources :patients
+  # resources :patients
   
   root "application#index"
 
