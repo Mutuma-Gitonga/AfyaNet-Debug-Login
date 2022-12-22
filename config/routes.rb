@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   patch "/patient_profile", to: "patients#update"
   delete "/patient_profile", to: "patients#destroy"
 
+  
+  post "/doctor_signup", to: "doctors#create" 
+
+
 end
