@@ -13,4 +13,9 @@ class PatientSessionsController < ApplicationController
     render json: {errors: ["Invalid email or password"]}, status: :unprocessable_entity
   end
 
+  def destroy
+    cookies.delete(:auth_token)
+    render json: {message: "Logged out"}, status: :ok
+  end
+
 end
