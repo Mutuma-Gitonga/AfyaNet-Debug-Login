@@ -9,6 +9,11 @@ class DoctorsController < ApplicationController
     render json: @doctor, status: :created
   end
 
+  # Show profile of currently logged in doctor
+  def show 
+    render json: @current_doctor, status: :ok
+  end
+
   private 
   
   def doctor_params 
