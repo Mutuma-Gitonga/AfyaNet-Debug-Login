@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
   before_action :authorize
 
   def index 
-      render json: {message: "Codearn API"}
+      render json: {message: "AfyaNet API"}
   end
 
   private
