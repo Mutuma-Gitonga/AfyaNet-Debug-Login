@@ -5,7 +5,7 @@ class Doctor < ApplicationRecord
 
     validates :first_name, presence: true
     validates :last_name, presence: true
-    validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Please enter a valid email address" }
     validates :licence_no presence: true, uniqueness: true
     validates :password, presence: true, length: { in: 6..20 }, format: { with: /(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/ }
     validates :password_confirmation, presence: true
