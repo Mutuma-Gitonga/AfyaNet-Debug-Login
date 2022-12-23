@@ -14,6 +14,18 @@ class DoctorsController < ApplicationController
     render json: @current_doctor, status: :ok
   end
 
+  # Update logged in/current doctor's attributes
+  def update 
+    @current_doctor.update!(doctor_params)
+    render json: @current_doctor, status: :ok
+  end
+
+  # Delete a logged in/current doctor's profile altogether
+  def destory 
+    @current_doctor.destroy
+    render json: { message: "Doctor profile deleted!" }, status: :ok
+  end
+
   private 
   
   def doctor_params 
