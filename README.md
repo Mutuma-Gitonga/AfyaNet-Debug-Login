@@ -35,6 +35,32 @@ $ rails db:seed
 $ rails s
 ```
 
+## Patient
+Patient sign up params 
+```console
+{
+    "first_name": "Sylvia",
+    "last_name": "Kamau",
+    "email":"sylvia@gmail.com",
+    "phone_number": "0768372439",
+    "location":"Karen",
+    "date_of_birth":"01/07/1999",
+    "password":"@Sylvia33",
+    "password_confirmation":"@Sylvia33"
+}
+```
+
+## Health Care Provider
+Health care provider sign up params 
+```console
+{
+    "email":"sylvia@gmail.com",
+    "password":"@Sylvia33"
+
+}"
+```
+
+
 ## Authors
 Annastacia Kioko
 

@@ -1,4 +1,7 @@
-class PatientSessionsController < ApplicationController
+class PatientsSessionsController < ApplicationController
+
+  wrap_parameters format: []
+  skip_before_action :authorize, only: :create
 
   def create
     patient = Patient.find_by(email: params[:email])

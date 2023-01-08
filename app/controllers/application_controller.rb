@@ -26,5 +26,6 @@ class ApplicationController < ActionController::API
     @current_doctor = Doctor.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
     render json: {error: ["Not authorized"]}, status: :unauthorized unless @current_patient || @current_doctor
   end
+  
 
 end
