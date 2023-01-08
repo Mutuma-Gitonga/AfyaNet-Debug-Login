@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
   wrap_parameters format: []
-  skip_before_action :authorize, only: :create
+  skip_before_action :patient_authorize, only: :create
+  skip_before_action :doctor_authorize
 
   # Create a User on signup 
   def create 

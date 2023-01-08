@@ -5,7 +5,8 @@ class ApplicationController < ActionController::API
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-  before_action :authorize
+  before_action :patient_authorize
+  before_action :doctor_authorize
 
   def index 
       render json: {message: "AfyaNet API"}
@@ -21,11 +22,14 @@ class ApplicationController < ActionController::API
       render json: {error: exception.message}, status: :not_found
   end
 
-  def authorize 
+  def patient_authorize
     @current_patient = Patient.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
-    @current_doctor = Doctor.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
-    render json: {error: ["Not authorized"]}, status: :unauthorized unless @current_patient || @current_doctor
+    render json: {error: ["Not authorized"]}, status: :unauthorized unless @current_patient
   end
-  
+
+  def doctor_authorize
+    @current_doctor = Doctor.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+    render json: {error: ["Not authorized"]}, status: :unauthorized unless @current_doctor
+  end
 
 end
