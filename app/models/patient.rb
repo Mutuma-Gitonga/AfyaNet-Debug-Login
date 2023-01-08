@@ -12,7 +12,8 @@ class Patient < ApplicationRecord
     validates :password_confirmation, presence: true
     validates :phone_number, presence: true, length: { is: 10 }, format: { with: /\A[0-9]+\z/ }
     validates :location, presence: true
-    validates :date_of_birth, presence: true, timeliness: { type: :date, before: lambda { Date.current }, after: lambda { 100.years.ago }, on_or_before: lambda { 18.years.ago } , message: "Date of birth must be a valid date and you must be at least 18 years old" }
+    validates :date_of_birth, presence: true
+    validate  :validate_age
 
     before_create { generate_token(:auth_token) }
 
@@ -20,6 +21,14 @@ class Patient < ApplicationRecord
         begin
             self[column] = SecureRandom.urlsafe_base64
         end while Patient.exists?(column => self[column])
+    end
+
+    private
+
+    def validate_age
+        if date_of_birth.present? && date_of_birth > 18.years.ago.to_date
+            errors.add(:date_of_birth, "You must be at least 18 years old to register")
+        end
     end
 
 
