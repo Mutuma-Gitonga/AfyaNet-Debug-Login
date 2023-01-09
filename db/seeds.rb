@@ -8,19 +8,18 @@
 
 require 'faker'
 puts 'Seeding patients..'
-Patient.create(first_name: "christ", last_name: "Tommy", date_of_birth: Faker::Date.birthday(min_age: 1, max_age: 65), phone_number: "+254712345678", email: "sharo254@gmail.com", password_digest: "123")
+patient1= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient2= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient3= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient4= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient5= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient6= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient7= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient8= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient9= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient10= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
+patient11= Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.free_email, password: "123", password_confirmation: "123", location:  Faker::Movies::LordOfTheRings.location, remember_me: yes, profile_picture: "")
 
-20.times do
-    Patient.create(
-    first_name: Faker::Name.first_name, 
-    last_name: Faker::Name.last_name, 
-    date_of_birth: Faker::Date.birthday(min_age: 1, max_age: 65),
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.free_email,
-    password_digest: "123"
-      
-    )
-  end
 
 puts 'Seeding doctor...'
 doc1= Doctor.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,email: Faker::Internet.email, password_digest: "254", licence_no: Faker::Movies::LordOfTheRings.character, location:  Faker::Movies::LordOfTheRings.location,specialty: 'Anesthesiology', contract_length: "4 months", days_available_weekly: 5, specific_days_times_available: "6am to 6pm every Monday", engaged: true )
