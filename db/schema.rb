@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_151822) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_09_154447) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,7 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_151822) do
     t.string "phone_number"
     t.string "licence_no"
     t.string "location"
-    t.string "specialty"
     t.string "contract_length"
     t.integer "days_available_weekly"
     t.string "specific_days_times_available"
@@ -50,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_151822) do
     t.datetime "password_reset_sent_at"
     t.boolean "remember_me"
     t.string "profile_picture"
+    t.integer "specialty_id"
   end
 
   create_table "medical_records", force: :cascade do |t|
