@@ -30,7 +30,7 @@ class DoctorsController < ApplicationController
   private 
   
   def doctor_params 
-    params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number, :licence_no, :location, :specialty, :contract_length, :days_available_weekly, :specific_days_times_available, :engaged, :remember_me, :profile_picture)
+    params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number, :licence_no, :location, :specialty, :contract_length, :days_available_weekly, :specific_days_times_available, :engaged, :remember_me, :profile_picture, :specialty_id)
   end
 
 end

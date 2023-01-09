@@ -36,7 +36,7 @@ $ rails s
 ```
 
 ## Patient
-Patient sign up params 
+Patient sign up params post'/patient_signup'
 ```console
 {
     "first_name": "Sylvia",
@@ -51,23 +51,30 @@ Patient sign up params
 ```
 
 ## Doctor
-Doctor sign up params 
+Doctor sign up params  post'/doctor_signup'
 ```
 {
-  "first_name" : "Ken", 
-  "last_name" : "Muli", 
-  "email" : "superdoctor@gmail.com", 
-  "password" : "Mic4000#", 
-  "password_confirmation" : "Mic4000#", 
-  "phone_number" : "0735700888", 
-  "licence_no" : "WWY3T", 
-  "location" : "Kasarani", 
-  "specialty" : "Oncologist", 
-  "contract_length" : "4", 
-  "days_available_weekly" : 3, 
-  "specific_days_times_available" : "mon, wed, thur"
+    "first_name":"Ashley",
+    "last_name":"Smith",
+    "email":"ashley@gmail.com",
+    "phone_number":"0712345906",
+    "password":"@Ashley13",
+    "password_confirmation":"@Ashley13"
 }
 
+```
+Doctor authenticate params patch'/doctor_profile'
+```
+{
+    "licence_no": 54321,
+    "specialty_id":3,
+    "location":"Karen",
+    "days_available_weekly":"monday,tuesday,wednesday,thursday",
+    "contract_length":6,
+    "specific_days_times_available":"10am - 16:45pm",
+    "password":"@Ashley13",
+    "password_confirmation":"@Ashley13"    
+}
 ```
 
 
