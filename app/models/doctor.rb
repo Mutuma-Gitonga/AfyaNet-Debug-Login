@@ -9,7 +9,7 @@ class Doctor < ApplicationRecord
     validates :licence_no, presence: true, uniqueness: true
     validates :password, presence: true, length: { in: 6..20 }, format: { with: /(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/, message: "Password must contain at least one uppercase letter, one number, and one special character" }
     validates :password_confirmation, presence: true
-    validates :speciality, presence: true
+    validates :specialty, presence: true
     validates :contract_length, presence: true
     validates :phone_number, presence: true, length: { is: 10 }, format: { with: /\A[0-9]+\z/ }
     validates :location, presence: true
