@@ -1,7 +1,7 @@
 class Doctor < ApplicationRecord
     has_many :messages
     has_many :appointments, through: :patients
-    belongs_to :specialty 
+    belongs_to :specialty, optional: true
     has_secure_password
 
     validates :first_name, presence: true
@@ -11,7 +11,7 @@ class Doctor < ApplicationRecord
     validates :password_confirmation, presence: true
     validates :phone_number, presence: true, length: { is: 10 }, format: { with: /\A[0-9]+\z/ },uniqueness: true
     validates :licence_no, uniqueness: true,allow_nil: true, allow_blank: true, length: { is: 5, message:"Licence Number must be 5 numbers" }, format: { with: /\A[0-9]+\z/, message: "Licence number must contain only numbers" }
-    validates :contract_length, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 13, message: "Contract length must be between 1 to 12 months" }
+    validates :contract_length, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 13, message: "Contract length must be between 1 to 12 months" }, allow_nil: true, allow_blank: true
 
     
 
