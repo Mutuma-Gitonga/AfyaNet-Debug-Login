@@ -65,7 +65,7 @@ Doctor sign up params
   "specialty" : "Oncologist", 
   "contract_length" : "4", 
   "days_available_weekly" : 3, 
-  "specific_times_available" : "mon, wed, thur"
+  "specific_days_times_available" : "mon, wed, thur"
 }
 
 ```
