@@ -1,6 +1,7 @@
 class Doctor < ApplicationRecord
     has_many :messages
     has_many :appointments, through: :patients
+    belongs_to :specialty 
     has_secure_password
 
     validates :first_name, presence: true
