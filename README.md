@@ -50,14 +50,25 @@ Patient sign up params
 }
 ```
 
-## Health Care Provider
-Health care provider sign up params 
-```console
+## Doctor
+Doctor sign up params 
+```
 {
-    "email":"sylvia@gmail.com",
-    "password":"@Sylvia33"
+  "first_name" : "Ken", 
+  "last_name" : "Muli", 
+  "email" : "superdoctor@gmail.com", 
+  "password" : "Mic4000#", 
+  "password_confirmation" : "Mic4000#", 
+  "phone_number" : "0735700888", 
+  "licence_no" : "WWY3T", 
+  "location" : "Kasarani", 
+  "specialty" : "Oncologist", 
+  "contract_length" : "4", 
+  "days_available_weekly" : 3, 
+  "specific_days_times_available" : "mon, wed, thur", 
+  "engaged" : true
+}
 
-}"
 ```
 
 
