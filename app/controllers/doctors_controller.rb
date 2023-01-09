@@ -1,6 +1,7 @@
 class DoctorsController < ApplicationController
   wrap_parameters format: []
-  skip_before_action :authorize, only: :create
+  skip_before_action :patient_authorize
+  skip_before_action :doctor_authorize , only: :create
 
   # Create a doctor
   def create 
