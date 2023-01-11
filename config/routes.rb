@@ -23,9 +23,4 @@ Rails.application.routes.draw do
   patch "/doctor_profile", to: "doctors#update"
   delete "/doctor_profile", to: "doctors#destroy"
 
-  get "/all_specialties", to: "specialties#index"
-  get "/specialty", to: "specialties#show"
-  post "/new_specialty", to: "specialties#new"
-  patch "/specialty", to: "specialties#update"
-  delete "/specialty", to: "specialties#destroy"
 end
