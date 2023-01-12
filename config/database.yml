@@ -85,4 +85,5 @@ test:
 production:
   <<: *default
   database: afyanet_rails_production
- 
+  username: afyanet_rails
+  password: <%= ENV["DATABASE_URL"] %>

@@ -41,3 +41,5 @@ gem 'rack-cors'
 
 
 
+
+gem "jwt", "~> 2.6"

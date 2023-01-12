@@ -1,29 +1,33 @@
 class DoctorsController < ApplicationController
   wrap_parameters format: []
   skip_before_action :patient_authorize
-  skip_before_action :doctor_authorize , only: :create
+  skip_before_action :doctor_authorize , only: [:create, :index]
+
+  def index 
+    @doctors = Doctor.all
+    render json: @doctors, status: :ok
+  end
 
   # Create a doctor
-  def create 
+  def create
     @doctor = Doctor.create!(doctor_params)
-    cookies[:auth_token] = @doctor.auth_token
     render json: @doctor, status: :created
   end
 
   # Show profile of currently logged in doctor
   def show 
-    render json: @current_doctor, status: :ok
+    render json: @doctor, status: :ok
   end
 
   # Update logged in/current doctor's attributes
   def update 
-    @current_doctor.update!(doctor_params)
-    render json: @current_doctor, status: :ok
+    @doctor.update!(doctor_params)
+    render json: @doctor, status: :ok
   end
 
   # Delete a logged in/current doctor's profile altogether
   def destory 
-    @current_doctor.destroy
+    @doctor.destroy
     render json: { message: "Doctor profile deleted!" }, status: :ok
   end
 

@@ -1,5 +1,8 @@
 class SpecialtiesController < ApplicationController 
 
+    skip_before_action :doctor_authorize
+    skip_before_action :patient_authorize
+
     def index
         @specialties = Specialty.all
         render json: @specialties, status: :ok
@@ -30,7 +33,7 @@ class SpecialtiesController < ApplicationController
     private
 
     def specialty_params
-        params.permit(:name)
+        params.permit(:name, :image)
     end
     
 end
