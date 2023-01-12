@@ -6,7 +6,7 @@ class DoctorsController < ApplicationController
   # Create a doctor
   def create
     @doctor = Doctor.create!(doctor_params)
-    render json: @doctor, status: :created
+    render json: { doctor: DoctorSerializer.new(doctor) }, status: :created
   end
 
   # Show profile of currently logged in doctor
