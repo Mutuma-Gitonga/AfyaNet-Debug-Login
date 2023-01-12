@@ -12,6 +12,46 @@ class ApplicationController < ActionController::API
       render json: {message: "AfyaNet API"}
   end
 
+  def encode_token(payload)
+    JWT.encode(payload, 'my_s3cr3t')
+  end
+
+  def auth_header
+    # { Authorization: 'Bearer <token' }
+    request.headers['Authorization']
+  end
+
+  def decoded_token
+      if auth_header
+          token = auth_header.split(' ')[1]
+          begin
+              JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
+          rescue
+              nil
+          end
+      end
+
+  end
+
+  def current_doctor
+      if decoded_token
+          doctor_id = decoded_token[0]['doctor_id']
+          @doctor = Doctor.find_by(id: doctor_id)
+      end
+  end
+
+  def logged_in?
+      !!current_doctor
+  end
+
+  def doctor_authorize
+      if logged_in?
+          true
+      else
+          render json: { message: 'Please log in' }, status: :unauthorized
+      end
+  end
+
   private
 
   def render_unprocessable_entity_response(invalid)
@@ -27,9 +67,9 @@ class ApplicationController < ActionController::API
     render json: {error: ["Not authorized"]}, status: :unauthorized unless @current_patient
   end
 
-  def doctor_authorize
-    @current_doctor = Doctor.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
-    render json: {error: ["Not authorized"]}, status: :unauthorized unless @current_doctor
-  end
+  # def doctor_authorize
+  #   @current_doctor = Doctor.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+  #   render json: {error: ["Not authorized"]}, status: :unauthorized unless @current_doctor
+  # end
 
 end
