@@ -1,30 +1,29 @@
 class PatientsController < ApplicationController
   wrap_parameters format: []
-  skip_before_action :patient_authorize , only: [:create, :show]
+  skip_before_action :patient_authorize, only: :create
   skip_before_action :doctor_authorize
 
-  # Create a User on signup 
+  # Create a patient on signup 
   def create 
     @patient = Patient.create!(patient_params)
-    cookies[:auth_token] = @patient.auth_token
     render json: @patient, status: :created
   end
 
-  # Show an appropriate profile only to the currently logged in patient
+  # Show an appropriate profile of a currently logged in patient
   def show 
-    render json: @current_patient, status: :ok
+    render json: @patient, status: :ok
   end
 
-  # Update logged in/current patient's attributes
+  # Update currently logged patient's attributes
   def update 
-    @current_patient.update!(patient_params)
-    render json: @current_patient, status: :ok
+    @patient.update!(patient_params)
+    render json: @patient, status: :ok
   end
 
-  # Delete a logged in/current patient's profile altogether
+  # Delete currently logged in patient profile altogether
   def destory 
-    @current_patient.destroy
-    render json: { message: "User deleted" }, status: :ok
+    @patient.destroy
+    render json: { message: "Patient profile deleted!" }, status: :ok
   end
 
   private 

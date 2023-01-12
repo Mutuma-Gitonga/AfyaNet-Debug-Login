@@ -1,5 +1,5 @@
 class PatientSerializer < ActiveModel::Serializer
-    attributes :id, :first_name, :last_name, :date_of_birth, :email, :phone_number, :location, :profile_picture, :auth_token, :password_reset_token, :password_reset_sent_at, :remember_me, :created_at, :updated_at, :password_digest, :age
+    attributes :id, :first_name, :last_name, :date_of_birth, :email, :phone_number, :location, :profile_picture, :auth_token, :password_reset_token, :password_reset_sent_at, :remember_me, :age
 
     has_many :messages
     has_many :appointments
