@@ -22,8 +22,11 @@ class DoctorsController < ApplicationController
 
   # Update logged in/current doctor's attributes
   def update 
+    @doctor = Doctor.find(params[:id])
     @doctor.update!(doctor_params)
     render json: @doctor, status: :ok
+    # @doctor.update!(doctor_params)
+    # render json: @doctor, status: :ok
   end
 
   # Delete a logged in/current doctor's profile altogether
@@ -35,7 +38,7 @@ class DoctorsController < ApplicationController
   private 
   
   def doctor_params 
-    params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number, :licence_no, :location, :specialty, :contract_length, :days_available_weekly, :specific_days_times_available, :engaged, :remember_me, :profile_picture, :specialty_id)
+    params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number, :licence_no, :location, :specialty, :contract_length, :days_available_weekly, :specific_days_times_available, :engaged, :remember_me, :profile_picture, :specialty_id, :last_login)
   end
 
 end
